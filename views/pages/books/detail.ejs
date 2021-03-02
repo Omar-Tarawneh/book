@@ -19,7 +19,9 @@
                             <%= element.description%>
                         </p>
                         <button class="update-button" onclick="openForm()">Update</button>
-                        <button class="delete-button">Delete</button>
+                        <form id="details_form" action="/books/<%= element.id%>?_method=DELETE" method="POST">
+                            <button type="submit" class="delete-button">Delete Book</button>
+                        </form>
                     </div>
                 </section>
                 <%- include('../../layout/edit.ejs') %>
