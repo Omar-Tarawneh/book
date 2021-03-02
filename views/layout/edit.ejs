@@ -1,0 +1,19 @@
+<div class="loginPopup">
+    <div class="formPopup" id="popupForm">
+        <form action="/books/<%= element.id%>?_method=PUT" method="POST" class="formContainer">
+            <label for="title">
+                <input type="text" id="title" name="title" value="<%= element.title%>">
+            </label>
+            <label for="author">
+                <input type="text" id="author" name="author" value="<%= element.author%>">
+            </label>
+            <label for="image">
+                <input type="text" id="image" name="image" value="<%= element.img%>">
+            </label>
+            <label for="description">
+                <input type="text" id="description" name="description" value="<%= element.description%>">
+            </label>
+            <button type="submit">Update The Book</button>
+        </form>
+    </div>
+</div>

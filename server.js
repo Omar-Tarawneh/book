@@ -5,12 +5,16 @@ const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
+const override = require('method-override');
+
+
 // configration
 const app = express();
 app.use(cors());
 require('dotenv').config();
-// const client = new pg.Client(process.env.DATABASE_URL);
-const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
+app.use(override('_method'));
+const client = new pg.Client(process.env.DATABASE_URL);
+// const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
 // PORT
 const PORT = process.env.PORT;
 
@@ -75,12 +79,38 @@ const handleBooks = (req, res) => {
     });
 }
 
+// update the book selected with new data and redirect him for the detail page for the book
+const updateBook = (req, res) => {
+    let id = req.params.id;
+    let sqlQuery = 'UPDATE list SET title=$1, author=$2, img=$3, description=$4 WHERE id=$5;'
+    let body = req.body;
+    const secureValue = [body.title, body.author, body.image, body.description, id];
+    client.query(sqlQuery, secureValue).then(() => {
+        res.redirect(`/books/${id}`);
+    }).catch(error => {
+        console.log('Error in updating the book', error);
+    })
+}
+// delete the book from the DB
+const deleteBook = (req, res) => {
+    let id = req.params.id;
+    console.log(id, 'working')
+    let sqlQuery = 'DELETE FROM list WHERE id=$1';
+    const secureValue = [id];
+    client.query(sqlQuery, secureValue).then(() => {
+        res.redirect('/');
+    }).catch(error => {
+        console.log('error in deleteing the book', error);
+    })
+}
 
 // roots / Paths
 // app.get('/hello', handleHello);
 app.get('/searches/new', handleForm);
 app.get('/', handleHome);
 app.get('/books/:id', handleDetails);
+app.put('/books/:id', updateBook);
+app.delete('/books/:id', deleteBook);
 app.post('/searches', handleSearch);
 app.post('/books', handleBooks);
 
