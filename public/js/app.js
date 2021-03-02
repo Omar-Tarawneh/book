@@ -9,5 +9,5 @@ function myFunction() {
 }
 
 function openForm() {
-    document.getElementById("myForm").style.display = "grid";
+    document.getElementById("popupForm").style.display = "grid";
 }

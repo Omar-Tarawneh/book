@@ -6,7 +6,7 @@
         <%- include('../layout/header.ejs') %>
             <main>
                 <legend>Search By Title or Author</legend>
-                <form action="/searches" method="POST">
+                <form id='search' action="/searches" method="POST">
                     <input type="text" name="seachQuery" id="search" placeholder="Enter Title or Author name">
                     <br>
                     <label class="radio" for="inauthor"><input type="radio" name="searchBy" id="inauthor"

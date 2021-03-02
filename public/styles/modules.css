@@ -255,21 +255,88 @@ footer ul li a {
         font-family: Arial, Helvetica, sans-serif;
         font-size: small;
     }
-    
-    form{
+    #search{
         display: flex;
+    }
+    form{
         justify-content: center;
         align-items: center;
         flex-direction: column;
         padding: 6vw;
         
     }
-    /* my work*/
-    #myForm{
-        display: none;
-        /* grid-gap: 20px; */
+    #book-button{
+        margin-left: 25px;
     }
-    #title, #image, #author, #description{
+    /* my work*/
+    .openBtn {
+        display: flex;
+        justify-content: left;
+      }
+      .openButton {
+        border: none;
+        border-radius: 5px;
+        background-color: #1c87c9;
+        color: white;
+        padding: 14px 20px;
+        cursor: pointer;
+        position: fixed;
+      }
+      .loginPopup {
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+      .formPopup {
+        display: none;
+        width: 58%;
+        position: fixed;
+        left: 49%;
+        top: 5%;
+        transform: translate(-50%, 5%);
+        border: 3px solid #999999;
+        z-index: 9;
+      }
+      .formContainer {
+        padding: 20px;
+        background-color: #fff;
+      }
+      .formContainer input[type=text],
+      .formContainer input[type=password] {
+        width: 94%;
+        padding: 26px;
+        margin: 27px 0 20px 0;
+        border: none;
+        background: #eee;
+        height: 29px;
+      }
+      .formContainer input[type=text]:focus,
+      .formContainer input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+      .formContainer .btn {
+        padding: 12px 20px;
+        border: none;
+        background-color: #8ebf42;
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        opacity: 0.8;
+      }
+      .formContainer .cancel {
+        background-color: #cc0000;
+      }
+      .formContainer .btn:hover,
+      .openButton:hover {
+        opacity: 1;
+      }
+    /* #myForm{
+        display: none;
+        grid-gap: 20px;
+    } */
+    /* #title, #image, #author, #description{
         height: 1vh;
         width: 50vw;
         padding: 2vw;
@@ -277,7 +344,7 @@ footer ul li a {
     }
     #description{
         height: 20%;
-    }
+    } */
     .detail-button{
         width: 97%;
         position: relative;
