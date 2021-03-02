@@ -1,6 +1,6 @@
 # Books app
 
-**Author**: Omar & Mutaz
+**Author**: Omar Tarawneh
 **Version**: 1.0.6 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
