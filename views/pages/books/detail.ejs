@@ -18,10 +18,11 @@
                         <p class="description">
                             <%= element.description%>
                         </p>
-                        <button class="detail-button"><a href="/">Home Page</a></button>
+                        <button class="update-button" onclick="openForm()">Update</button>
+                        <button class="delete-button">Delete</button>
                     </div>
                 </section>
-
+                <%- include('../../layout/edit.ejs') %>
             </main>
             <%- include('../../layout/footer.ejs') %>
     </body>

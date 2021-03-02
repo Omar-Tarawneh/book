@@ -7,3 +7,7 @@ function myFunction() {
         x.style.display = "block";
     }
 }
+
+function openForm() {
+    document.getElementById("myForm").style.display = "grid";
+}

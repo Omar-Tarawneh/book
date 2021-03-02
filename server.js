@@ -5,12 +5,16 @@ const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
+const override = require('method-override');
+
+
 // configration
 const app = express();
 app.use(cors());
 require('dotenv').config();
-// const client = new pg.Client(process.env.DATABASE_URL);
-const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
+app.use(override('_method'));
+const client = new pg.Client(process.env.DATABASE_URL);
+// const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
 // PORT
 const PORT = process.env.PORT;
 
@@ -75,12 +79,17 @@ const handleBooks = (req, res) => {
     });
 }
 
+// update the book selected with new data and redirect him for the detail page for the book
+const updateBook = (req, res) => {
+    console.log('book updated');
+}
 
 // roots / Paths
 // app.get('/hello', handleHello);
 app.get('/searches/new', handleForm);
 app.get('/', handleHome);
 app.get('/books/:id', handleDetails);
+app.put('/books/:id', updateBook);
 app.post('/searches', handleSearch);
 app.post('/books', handleBooks);
 

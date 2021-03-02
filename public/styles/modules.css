@@ -214,6 +214,7 @@ footer ul li a {
         position: relative;
       }
       
+      
       .topnav #myLinks {
         display: none;
         text-align: center;
@@ -236,8 +237,8 @@ footer ul li a {
       }
       
       .topnav a:hover {
-        background-color: #ddd;
-        color: black;
+        background-color: rgb(7, 59, 7);
+        color: white;
       }
       
       .active {
@@ -261,11 +262,40 @@ footer ul li a {
         align-items: center;
         flex-direction: column;
         padding: 6vw;
-    
+        
+    }
+    /* my work*/
+    #myForm{
+        display: none;
+        /* grid-gap: 20px; */
+    }
+    #title, #image, #author, #description{
+        height: 1vh;
+        width: 50vw;
+        padding: 2vw;
+        border-radius: 1vh;
+    }
+    #description{
+        height: 20%;
     }
     .detail-button{
         width: 97%;
+        position: relative;
+        top: 10px;
     }
+    .update-button{
+        width: 40%;
+        float: left;
+    }
+    .delete-button{
+        width: 40%;
+        float: right;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: rgb(7, 59, 7);
+    }
+    /*===============================*/
     input[type = text]{
         height: 1vh;
         width: 50vw;
@@ -305,7 +335,9 @@ footer ul li a {
     #book{
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         margin: auto;
+        margin-bottom: 50px;
         width: 100%;
    }
    .select{
@@ -320,7 +352,7 @@ footer ul li a {
    .bookDiv{
     box-sizing: border-box;
     border: gray 1px solid;
-    width: 260px;
+    width: 37%;
     background-color: #d8d8d8;
     margin-right: 50px;
     margin-top: 90px;
@@ -340,7 +372,7 @@ footer ul li a {
        margin-bottom: 10px;
    }
    footer{
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
     background:rgb(0, 4, 1) ;
@@ -370,6 +402,5 @@ footer ul li a {
     font-size: 20px;
 }
 }
-}
 
-}
+
